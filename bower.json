@@ -1,0 +1,19 @@
+{
+  "name": "IoT",
+  "version": "1.0.0",
+  "authors": [
+    "Minh Khoa Pham <khoa@viatick.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "eonasdan-bootstrap-datetimepicker": "~4.17.37"
+  }
+}
