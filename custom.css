@@ -1,0 +1,306 @@
+body {
+	font: 10px sans-serif;
+}
+
+#pie-chart {
+	height: 500px;
+	position: relative;
+	width: 760px;
+}
+
+#page-container.sidebar-visible-lg-full #main-container {
+	/*margin-left: 220px;*/
+}
+
+.tooltip {
+	background: #eee;
+	box-shadow: 0 0 5px #999999;
+	color: #333;
+	/*display: none;*/
+	font-size: 12px;
+	left: 230px;
+	padding: 10px;
+	position: absolute;
+	text-align: center;
+	top: 105px;
+	width: 80px;
+	z-index: 10;
+	opacity: 1;
+}
+
+.legend {
+	font-size: 12px;
+}
+rect {
+	stroke-width: 2;
+}
+
+.plot{
+	fill: #fff;
+}
+.axis path,
+.axis line {
+	fill: none;
+	stroke: #AFBABF;
+	shape-rendering: crispEdges;
+}
+.axis text {
+	font-family:  SourceSansPro-Bold;
+	font-size: 14px;
+	fill: #AFBABF;
+}
+
+.x.axis path {
+	display: none;
+}
+.y.axis path{
+	display: none;
+}
+
+.line {
+	fill: none;
+	stroke: steelblue;
+	stroke-linejoin: round;
+	stroke-linecap:round;
+}
+
+.hed {
+	font-family: SourceSansPro-Bold;
+	font-size: 24pt;
+	margin-bottom:5px; 
+	margin-top:0px;
+}
+
+.dek {
+	font-family: SourceSansPro-Light;
+	font-size: 12pt;
+	margin-bottom:0px; 
+	margin-top:0px;
+}	
+.menuchoice {
+	font-family: SourceSansPro-Light;
+	font-size: 10pt;
+	margin-bottom:0px;
+	fill: #231F20; 
+}
+.legend {
+	font-family: SourceSansPro-Light;
+	font-size: 10pt;
+	margin-bottom:0px;
+	fill: #231F20; 
+}	
+.legend-off {
+	font-family: SourceSansPro-Light;
+	font-size: 10pt;
+	margin-bottom:0px;
+	fill: #231F20; 
+}
+.legend-select {
+	font-family: SourceSansPro-Bold;
+	font-size: 10pt;
+	margin-bottom:0px;
+	fill: #231F20; 
+}
+.tip1 {
+	font-family: SourceSansPro-Bold;
+	font-size: 14pt;
+	text-align: center; 
+	margin-bottom:-12px; 
+	margin-top:0px;
+}
+
+.tip2 {
+	font-family: SourceSansPro-ExtraLight;
+	font-size: 10pt;
+	text-align: center; 
+	margin-bottom:-12px; 
+}	
+.tip3 {
+	font-family: SourceSansPro-ExtraLight;
+	font-size: 10pt;
+	text-align: center; 
+	margin-bottom:0px; 
+}		
+
+@font-face {
+	font-family: 'SourceSansPro-ExtraLight';
+	font-style: normal;
+	font-weight: 200;
+	src: local('Source Sans Pro ExtraLight'), local('SourceSansPro-ExtraLight'), url(http://themes.googleusercontent.com/static/fonts/sourcesanspro/v5/toadOcfmlt9b38dHJxOBGC-IiwWNzQT_LXAtr-Ee9Pw.woff) format('woff');
+}
+@font-face {
+	font-family: 'SourceSansPro-Light';
+	font-style: normal;
+	font-weight: 300;
+	src: local('Source Sans Pro Light'), local('SourceSansPro-Light'), url(http://themes.googleusercontent.com/static/fonts/sourcesanspro/v5/toadOcfmlt9b38dHJxOBGMVNtom4QlEDNJaqqqzqdSs.woff) format('woff');
+}
+@font-face {
+	font-family: 'SourceSansPro-Bold';
+	font-style: normal;
+	font-weight: 700;
+	src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'), url(http://themes.googleusercontent.com/static/fonts/sourcesanspro/v5/toadOcfmlt9b38dHJxOBGIqjGYJUyOXcBwUQbRaNH6c.woff) format('woff');
+}
+
+.tipsy { font-family:"Source Sans Pro"; font-size: 10px; position: absolute; padding: 5px; z-index: 100000; }
+.tipsy-inner { background-color: #000; color: #FFF; max-width: 200px; padding: 0; text-align: left; padding:10px;}
+/* Rounded corners */
+.tipsy-inner { border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
+
+/* Uncomment for shadow */
+/*.tipsy-inner { box-shadow: 0 0 5px #000000; -webkit-box-shadow: 0 0 5px #000000; -moz-box-shadow: 0 0 5px #000000; }*/
+
+.tipsy-arrow { position: absolute; width: 0; height: 0; line-height: 0; border: 5px dashed #000; }
+
+/* Rules to colour arrows */
+.tipsy-arrow-n { border-bottom-color: #000; }
+.tipsy-arrow-s { border-top-color: #000; }
+.tipsy-arrow-e { border-left-color: #FFF; }
+.tipsy-arrow-w { border-right-color: #000; }
+
+.tipsy-n .tipsy-arrow { top: 0px; left: 50%; margin-left: -5px; border-bottom-style: solid; border-top: none; border-left-color: transparent; border-right-color: transparent; }
+.tipsy-nw .tipsy-arrow { top: 0; left: 10px; border-bottom-style: solid; border-top: none; border-left-color: transparent; border-right-color: transparent;}
+.tipsy-ne .tipsy-arrow { top: 0; right: 10px; border-bottom-style: solid; border-top: none;  border-left-color: transparent; border-right-color: transparent;}
+.tipsy-s .tipsy-arrow { bottom: 0; left: 50%; margin-left: -5px; border-top-style: solid; border-bottom: none;  border-left-color: transparent; border-right-color: transparent; }
+.tipsy-sw .tipsy-arrow { bottom: 0; left: 10px; border-top-style: solid; border-bottom: none;  border-left-color: transparent; border-right-color: transparent; }
+.tipsy-se .tipsy-arrow { bottom: 0; right: 10px; border-top-style: solid; border-bottom: none; border-left-color: transparent; border-right-color: transparent; }
+.tipsy-e .tipsy-arrow { right: 0; top: 50%; margin-top: -5px; border-left-style: solid; border-right: none; border-top-color: transparent; border-bottom-color: transparent; }
+.tipsy-w .tipsy-arrow { left: 0; top: 50%; margin-top: -5px; border-right-style: solid; border-left: none; border-top-color: transparent; border-bottom-color: transparent; }
+
+
+.gravity { width: 100%; margin: 5px 0; border-spacing: 5px; }
+.gravity td { text-align: center; vertical-align: middle; padding: 5px 0; background-color: #d0d0d0; width: 33%; }
+.gravity a { }
+.gravity a:hover { color: #505050; background: none; }
+
+.bar {
+  fill: orange;
+}
+
+.bar:hover {
+  fill: orangered ;
+}
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+
+.day {
+  fill: #fff;
+  stroke: #ccc;
+}
+
+.month {
+  fill: none;
+  stroke: #000;
+  stroke-width: 2px;
+}
+
+.RdYlGn .q0-11{fill:rgb(165,0,38)}
+.RdYlGn .q1-11{fill:rgb(215,48,39)}
+.RdYlGn .q2-11{fill:rgb(244,109,67)}
+.RdYlGn .q3-11{fill:rgb(253,174,97)}
+.RdYlGn .q4-11{fill:rgb(254,224,139)}
+.RdYlGn .q5-11{fill:rgb(255,255,191)}
+.RdYlGn .q6-11{fill:rgb(217,239,139)}
+.RdYlGn .q7-11{fill:rgb(166,217,106)}
+.RdYlGn .q8-11{fill:rgb(102,189,99)}
+.RdYlGn .q9-11{fill:rgb(26,152,80)}
+.RdYlGn .q10-11{fill:rgb(0,104,55)}
+
+#map,#map2 {
+	height: 200px;
+}
+
+.legend {
+    line-height: 18px;
+    color: #555;
+}
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}
+
+.info {
+    padding: 6px 8px;
+    /*font: 14px/16px Arial, Helvetica, sans-serif;*/
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+.info h4 {
+    margin: 0 0 5px;
+    color: #777;
+}
+
+#bubble-chart circle {
+	cursor: pointer;
+}
+
+.leaflet-legend, .leaflet-label {
+      background: white;
+      background: rgba(255,255,255,0.8);
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);      
+      border-radius: 5px;   
+      font: 14px/16px Arial, Helvetica, sans-serif;       
+    }
+    .leaflet-legend {
+      text-align: left;
+      line-height: 18px;
+      color: #555;
+      z-index: 6;
+      width: 110px;               
+      padding: 6px 8px;
+    }
+    .leaflet-legend h4 {
+      margin: 0 0 5px;
+      color: #777;
+      text-align: center;
+    }
+    .leaflet-legend i {
+      width: 18px;
+      height: 18px;
+      float: left;
+      margin-right: 8px;
+      opacity: 0.7;
+    }
+    .leaflet-label {
+      display: block;
+      padding: 6px;
+      position: absolute;
+      -webkit-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+      white-space: nowrap;
+      z-index: 8;
+      margin-top: 35px;
+    }
