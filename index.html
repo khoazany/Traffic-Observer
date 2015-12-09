@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/plugins.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/themes.css">
+
+<!-- Plugins -->
+<!--
+<link rel="stylesheet" href="app/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+-->
+<link href="bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+<link href="pace-theme.css" rel="stylesheet" />
+
+<!-- Our custom CSS -->
+<link href="custom.css" rel="stylesheet" />
+<body>
+
+	<!-- Page Wrapper -->
+	<!-- In the PHP version you can set the following options from inc/config file -->
+	<!--
+            Available classes:
+
+            'page-loading'      enables page preloader
+        -->
+        <div id="page-wrapper" class="page-loading">
+        	<!-- Preloader -->
+        	<!-- Preloader functionality (initialized in js/app.js) - pageLoading() -->
+        	<!-- Used only if page preloader enabled from inc/config (PHP version) or the class 'page-loading' is added in #page-wrapper element (HTML version) -->
+        	<div class="preloader">
+        		<div class="inner">
+        			<!-- Animation spinner for all modern browsers -->
+        			<div class="preloader-spinner themed-background hidden-lt-ie10"></div>
+
+        			<!-- Text for IE9 -->
+        			<h3 class="text-primary visible-lt-ie10">
+        				<strong>Loading..</strong>
+        			</h3>
+        		</div>
+        	</div>
+        	<!-- END Preloader -->
+
+        	<!-- Page Container -->
+        	<!-- In the PHP version you can set the following options from inc/config file -->
+		<!--
+                Available #page-container classes:
+
+                'sidebar-light'                                 for a light main sidebar (You can add it along with any other class)
+
+                'sidebar-visible-lg-mini'                       main sidebar condensed - Mini Navigation (> 991px)
+                'sidebar-visible-lg-full'                       main sidebar full - Full Navigation (> 991px)
+
+                'sidebar-alt-visible-lg'                        alternative sidebar visible by default (> 991px) (You can add it along with any other class)
+
+                'header-fixed-top'                              has to be added only if the class 'navbar-fixed-top' was added on header.navbar
+                'header-fixed-bottom'                           has to be added only if the class 'navbar-fixed-bottom' was added on header.navbar
+
+                'fixed-width'                                   for a fixed width layout (can only be used with a static header/main sidebar layout)
+
+                'enable-cookies'                                enables cookies for remembering active color theme when changed from the sidebar links (You can add it along with any other class)
+            -->
+            <div id="page-container"
+            class="header-fixed-top sidebar-visible-lg-full">
+            <!-- Alternative Sidebar -->
+            <div id="sidebar-alt" tabindex="-1" aria-hidden="true">
+            	<!-- Toggle Alternative Sidebar Button (visible only in static layout) -->
+            	<a href="javascript:void(0)" id="sidebar-alt-close"
+            	onclick="App.sidebar('toggle-sidebar-alt');"><i
+            	class="fa fa-times"></i></a>
+
+            	<!-- Wrapper for scrolling functionality -->
+            	<div id="sidebar-scroll-alt">
+            		<!-- Sidebar Content -->
+            		<div class="sidebar-content">
+            			<!-- Profile -->
+            			<div class="sidebar-section">
+							<!-- <h2 class="text-light">Profile</h2>
+							<form action="index.html" method="post"
+								class="form-control-borderless" onsubmit="return false;">
+								<div class="form-group">
+									<label for="side-profile-name">Name</label> <input type="text"
+										id="side-profile-name" name="side-profile-name"
+										class="form-control" value="John Doe">
+								</div>
+								<div class="form-group">
+									<label for="side-profile-email">Email</label> <input
+										type="email" id="side-profile-email" name="side-profile-email"
+										class="form-control" value="abc">
+								</div>
+								<div class="form-group">
+									<label for="side-profile-password">New Password</label> <input
+										type="password" id="side-profile-password"
+										name="side-profile-password" class="form-control">
+								</div>
+								<div class="form-group">
+									<label for="side-profile-password-confirm">Confirm New
+										Password</label> <input type="password"
+										id="side-profile-password-confirm"
+										name="side-profile-password-confirm" class="form-control">
+								</div>
+								<div class="form-group remove-margin">
+									<button type="submit" class="btn btn-effect-ripple btn-primary"
+										onclick="App.sidebar('close-sidebar-alt');">Save</button>
+								</div>
+							</form> -->
+						</div>
+						<!-- END Profile -->
+
+						<!-- Settings -->
+<!-- 						<div class="sidebar-section">
+							<h2 class="text-light">Settings</h2>
+							<form action="index.html" method="post"
+								class="form-horizontal form-control-borderless"
+								onsubmit="return false;">
+								<div class="form-group">
+									<label class="col-xs-7 control-label-fixed">Notifications</label>
+									<div class="col-xs-5">
+										<label class="switch switch-success"><input
+											type="checkbox" checked><span></span></label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-7 control-label-fixed">Public
+										Profile</label>
+									<div class="col-xs-5">
+										<label class="switch switch-success"><input
+											type="checkbox" checked><span></span></label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-7 control-label-fixed">Enable API</label>
+									<div class="col-xs-5">
+										<label class="switch switch-success"><input
+											type="checkbox"><span></span></label>
+									</div>
+								</div>
+								<div class="form-group remove-margin">
+									<button type="submit" class="btn btn-effect-ripple btn-primary"
+										onclick="App.sidebar('close-sidebar-alt');">Save</button>
+								</div>
+							</form>
+						</div> -->
+						<!-- END Settings -->
+					</div>
+					<!-- END Sidebar Content -->
+				</div>
+				<!-- END Wrapper for scrolling functionality -->
+			</div>
+			<!-- END Alternative Sidebar -->
+
+			<!-- Main Sidebar -->
+			<div id="sidebar">
+				<!-- Sidebar Brand -->
+				<div id="sidebar-brand" class="themed-background">
+					<a href="/users#/superUser/appManagement" class="sidebar-title">  
+						<!--<img src = "/assets/images/icon.png" width = "30">-->
+						<span class="sidebar-nav-mini-hide">Smart<strong>Water</strong></span>
+					</a>
+				</div>
+				<!-- END Sidebar Brand -->
+
+				<!-- Wrapper for scrolling functionality -->
+				<div id="sidebar-scroll">
+					<!-- Sidebar Content -->
+					<div class="sidebar-content">
+						<!-- Sidebar Navigation -->
+						<ul class="sidebar-nav">
+							<!--
+                                <li>
+                                    <a href="index.html"><i class="gi gi-compass sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Dashboard</span></a>
+                                </li>
+                            -->
+
+
+                            <li>
+                            	<a id="water-consumption" onclick="changeView('water-consumption')" class="sidebar-nav-menu active"><i class="fa sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-user sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Water Consumption</span></a>
+                            </li>
+
+                            <li><a id="pipe-map" onclick="changeView('pipe-map')"><i class="fa fa-cloud sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Pipe Map</span></a>		
+
+                            </li>
+
+                            <li><a id="alerts" onclick="changeView('alerts')"><i class="fa fa-users sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Alerts</span></a>		
+
+                            </li>
+
+<!-- 							<li><a href="#" class="sidebar-nav-menu"><i class="fa fa-chevron-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-rocket sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Object Management</span></a>
+                                    
+							
+							  <ul>
+							  	
+                                    <li>
+                                        <a ng-link="createOrUpdateObject()">Create Object</a>
+                                    </li> 
+                                
+                                    <li>
+                                        <a ng-link="viewObjectByTemplate()">View by Template</a>
+                                    </li>         
+                                                               
+                                    <li>
+                                        <a ng-link="viewObjectByFolder()">View by Folder</a>
+                                    </li>              
+                               </ul>		
+									
+                           </li> -->
+
+
+
+                       </ul>
+                       <!-- END Sidebar Navigation -->
+
+
+
+                   </div>
+                   <!-- END Sidebar Content -->
+               </div>
+               <!-- END Wrapper for scrolling functionality -->
+
+               <!-- Sidebar Extra Info -->
+				<!--
+				<div id="sidebar-extra-info"
+					class="sidebar-content sidebar-nav-mini-hide">
+					<div class="push-bit">
+						<span class="pull-right"> <a href="javascript:void(0)"
+							class="text-muted"><i class="fa fa-plus"></i></a>
+						</span> <small><strong>78 GB</strong> / 100 GB</small>
+					</div>
+					<div class="progress progress-mini push-bit">
+						<div class="progress-bar progress-bar-primary" role="progressbar"
+							aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"
+							style="width: 78%"></div>
+					</div>
+					<div class="text-center">
+						<small>Crafted with <i class="fa fa-heart text-danger"></i>
+							by <a href="http://goo.gl/vNS3I" target="_blank">Vooze Team</a></small><br>
+						<small><span id="year-copy"></span> &copy; <a
+							href="http://goo.gl/RcsdAh" target="_blank">VIP</a></small>
+					</div>
+				</div>
+			-->
+			<!-- END Sidebar Extra Info -->
+		</div>
+		<!-- END Main Sidebar -->
+
+		<!-- Main Container -->
+		<div id="main-container">
+			<!-- Header -->
+			<!-- In the PHP version you can set the following options from inc/config file -->
+				<!--
+                        Available header.navbar classes:
+
+                        'navbar-default'            for the default light header
+                        'navbar-inverse'            for an alternative dark header
+
+                        'navbar-fixed-top'          for a top fixed header (fixed main sidebar with scroll will be auto initialized, functionality can be found in js/app.js - handleSidebar())
+                            'header-fixed-top'      has to be added on #page-container only if the class 'navbar-fixed-top' was added
+
+                        'navbar-fixed-bottom'       for a bottom fixed header (fixed main sidebar with scroll will be auto initialized, functionality can be found in js/app.js - handleSidebar()))
+                            'header-fixed-bottom'   has to be added on #page-container only if the class 'navbar-fixed-bottom' was added
+                        -->
+                        <header class="navbar navbar-inverse navbar-fixed-top">
+                        	<!-- Left Header Navigation -->
+                        	<ul class="nav navbar-nav-custom">
+                        		<!-- Main Sidebar Toggle Button -->
+                        		<li><a href="javascript:void(0)"
+                        			onclick="App.sidebar('toggle-sidebar');this.blur();"> <i
+                        			class="fa fa-ellipsis-v fa-fw animation-fadeInRight"
+                        			id="sidebar-toggle-mini"></i> <i
+                        			class="fa fa-bars fa-fw animation-fadeInRight"
+                        			id="sidebar-toggle-full"></i>
+                        		</a></li>
+                        		<!-- END Main Sidebar Toggle Button -->
+
+                        		<!-- Header Link -->
+                        		<li class="hidden-xs animation-fadeInQuick"><a href=""><strong class = "topHeader">ZENI SQUAD</strong></a></li>
+                        		<!-- END Header Link -->
+                        	</ul>
+                        	<!-- END Left Header Navigation -->
+
+                        	<!-- Right Header Navigation -->
+                        	<ul class="nav navbar-nav-custom pull-right">
+                        		<!-- Filter -->
+                        		<li>
+
+
+						<!--
+						<li>
+							<form action="page_ready_search_results.html" method="post"
+								class="navbar-form-custom" role="search">
+								<input type="text" id="top-search" name="top-search"
+									class="form-control" placeholder="Search.." ng-model = "$root.searchValue">
+							</form>
+						</li>
+					-->
+					<!-- END Search Form -->
+
+					<!-- Search button -->
+						<!-- <li><a href="javascript:void(0)"
+							ng-click="app.search()"> <i class="gi gi-search"></i>
+						</a></li> -->
+						<!-- End -->
+
+						<!-- Alternative Sidebar Toggle Button -->
+						<!--
+						<li><a href="javascript:void(0)"
+							onclick="App.sidebar('toggle-sidebar-alt');this.blur();"> <i
+								class="gi gi-settings"></i>
+						</a></li>
+					-->
+					<!-- END Alternative Sidebar Toggle Button -->
+
+					<!-- User Dropdown -->
+					<li class="dropdown"><a href="javascript:void(0)"
+						class="dropdown-toggle" data-toggle="dropdown"> 
+						<i class = "fa fa-bars"></i>
+					</a>
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li class="dropdown-header"><strong>ADMINISTRATOR</strong>
+						</li>
+<!-- 								<li><a href="page_app_email.html"> <i
+										class="fa fa-inbox fa-fw pull-right"></i> Inbox
+									</a></li> -->
+<!-- 								<li><a href="page_app_social.html"> <i
+										class="fa fa-pencil-square fa-fw pull-right"></i> Profile
+								</a></li>
+								<li><a href="page_app_media.html"> <i
+										class="fa fa-picture-o fa-fw pull-right"></i> Media Manager
+									</a></li> -->
+<!-- 								<li class="divider">
+								<li>
+								<li><a href="javascript:void(0)"
+									onclick="App.sidebar('toggle-sidebar-alt');"> <i
+										class="gi gi-settings fa-fw pull-right"></i> Settings
+								</a></li>
+								<li><a href="page_ready_lock_screen.html"> <i
+										class="gi gi-lock fa-fw pull-right"></i> Lock Account
+									</a></li> -->
+									<li><a ng-click = "app.logout()"> <i
+										class="fa fa-power-off fa-fw pull-right"></i> Log out
+									</a></li>
+								</ul></li>
+								<!-- END User Dropdown -->
+							</ul>
+							<!-- END Right Header Navigation -->
+						</header>
+						<!-- END Header -->
+
+						<!-- Page content -->
+				<!--
+                        Available classes when #page-content-sidebar is used:
+
+                        'inner-sidebar-left'      for a left inner sidebar
+                        'inner-sidebar-right'     for a right inner sidebar
+                    -->
+                    <div id="page-content" context-menu data-target="main-content">
+                    	<div class="container-fluid">
+                    		<div class="row" id="alert-container">
+                    		</div>
+                    	</div>
+                    	<div class="container-fluid content" id="water-consumption-content" hidden="">
+                    		<div class="row form-group">
+                    			<div class="col-sm-3">
+                    				<label for="filter-type">Step 1: Choose view option</label>
+                    				<select class="form-control" id="filter-type">
+                    					<option value="day">Day</option>
+                    					<option value="hour">Hour</option>
+                    					<option value="minute">Minute</option>
+                    				</select>
+                    			</div>
+                    			<div class="col-sm-3">
+                    				<label for="datetimepickerFrom">Step 2: Choose start time (optional)</label>
+                    				<input id="dateFrom" type="text" name="example-datepicker2" class="form-control input-datepicker" data-date-format="yyyy-mm-dd" placeholder="yyyy-mm-dd">
+                    				<div class="input-group bootstrap-timepicker">
+                    					<input id="timeFrom" type="text" class="form-control input-timepicker24">
+                    					<span class="input-group-btn">
+                    						<a href="javascript:void(0)" class="btn btn-effect-ripple btn-primary"><i class="fa fa-clock-o"></i></a>
+                    					</span>
+                    				</div>
+                    			</div>
+                    			<div class="col-sm-3">
+                    				<label for="filter-type">Step 3: Choose end time (optional)</label>
+                    				<input id="dateTo" type="text" name="example-datepicker2" class="form-control input-datepicker" data-date-format="yyyy-mm-dd" placeholder="yyyy-mm-dd">
+                    				<div class="input-group bootstrap-timepicker">
+                    					<input id="timeTo" type="text" class="form-control input-timepicker24">
+                    					<span class="input-group-btn">
+                    						<a href="javascript:void(0)" class="btn btn-effect-ripple btn-primary"><i class="fa fa-clock-o"></i></a>
+                    					</span>
+                    				</div>
+                    			</div>
+                    			<div class="col-sm-3">
+                    				<label for="filter-type">Step 4:</label>
+                    				<button onclick="viewChart()" class="form-control btn btn-primary" id='view' />View chart</button>
+                    			</div>
+
+                    		</div>
+                    		<div class="row">
+                    			<div id="main-container">
+                    				<svg id="svg"></svg>
+                    			</div>
+                    		</div>
+                    	</div>
+
+                    	<div class="container-fluid content" id="pipe-map-content" hidden="">
+                    		<div class="heatmap" style="width:1000px; height:500px;">
+                    			<!--<img style="width:100p%; height:100%;" src="lshape.jpg"/>-->
+
+                    			<svg width="640" height="480" xmlns="http://www.w3.org/2000/svg">
+                    				<!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+                    				<g>
+                    				<title>Pipe Map</title>
+                    					<line id="svg_5" y2="392.99999" x2="141" y1="115" x1="142" stroke-linecap="null" stroke-linejoin="null" stroke-width="5" stroke="#000000" fill="none"/>
+                    					<rect id="svg_3" height="45" width="79" y="68" x="130" stroke-linecap="null" stroke-linejoin="null" stroke-width="5" stroke="#000000" fill="#ffffff"/>
+                    					<rect id="svg_4" height="78" width="47" y="323.99999" x="417" stroke-linecap="null" stroke-linejoin="null" stroke-width="5" stroke="#000000" fill="#ffffff"/>
+                    					<line id="svg_6" y2="338" x2="197" y1="114.99999" x1="197" stroke-linecap="null" stroke-linejoin="null" stroke-width="5" stroke="#000000" fill="none"/>
+                    					<line id="svg_7" y2="390" x2="417.00001" y1="390" x1="140.99999" stroke-linecap="null" stroke-linejoin="null" stroke-width="5" stroke="#000000" fill="none"/>
+                    					<line id="svg_8" y2="337" x2="415" y1="337" x1="195" stroke-linecap="null" stroke-linejoin="null" stroke-width="5" stroke="#000000" fill="none"/>
+                    					<text transform="matrix(0.6505119204521179,0,0,0.6363636255264282,49.39249499235302,33.4545464515686) " xml:space="preserve" text-anchor="middle" font-family="serif" font-size="24" id="svg_9" y="92.28571" x="79.32948" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" stroke="#000000" fill="#000000">Point 1</text>
+                    					<text transform="matrix(0.6650739312171936,0,0,0.6363636255264282,134.52514881454408,90.36363905668259) " xml:space="preserve" text-anchor="middle" font-family="serif" font-size="24" id="svg_10" y="351.71429" x="460.05748" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" stroke="#000000" fill="#000000">Point 2</text>
+                    				</g>
+                    			</svg>
+                    		</div>
+                    	</div>
+
+                    	<div class="container-fluid content" id="alerts-content" hidden="">
+                    		 <!-- Datatables Block -->
+                        <!-- Datatables is initialized in js/pages/uiTables.js -->
+                        <div class="block full">
+                            <div class="block-title">
+                                <h2>LATEST ALERTS</h2>
+                            </div>
+                            <div class="table-responsive">
+                                <table id="example-datatable" class="table table-striped table-bordered table-vcenter">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center" style="width: 50px;">Timestamp</th>
+                                            <th>Location</th>
+                                            <th>Alert</th>
+                                            <th style="width: 120px;">Status</th>
+                                            <th class="text-center" style="width: 75px;"><i class="fa fa-flash"></i></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="alert-table">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- END Datatables Block -->
+                    	</div>
+
+                    </div>
+                    <!-- END Page Content -->
+                </div>
+                <!-- END Main Container -->
+            </div>
+            <!-- END Page Container -->
+        </div>
+        <!-- END Page Wrapper -->
+
+        <!-- Theme -->
+        <script src="javascripts/vendor/jquery-2.1.3.min.js"></script>
+        <script src="javascripts/vendor/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="javascripts/plugins.js"></script>
+        <script src="javascripts/app.js"></script>
+        <script src="javascripts/pages/appMedia.js"></script>
+
+        <!-- Plugins & libraries -->
+        <script src="//d3js.org/d3.v3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+
+        <script src="moment-timezone.js"></script>
+<!--
+<script type="text/javascript" src="app/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+-->
+<script src="bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="heatmap.js"></script>
+<script src="pace.js"></script>
+<script src="jquery.tipsy.js"></script>
+
+<!-- Main javascript controller -->
+<script src="main.js">
+</script>
+</body>
