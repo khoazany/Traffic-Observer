@@ -165,8 +165,7 @@ function generateCalendarView (parentId,svgId,transformedDataTotal) {
 
         rect.filter(function(d) { return d in data; })
         .attr("class", function(d) { return "day " + color(data[d]); })
-        .select("title")
-        .text(function(d) { return d + ": " + percent(data[d]); });
+        .select("title");
 
     //  Tooltip
     rect.on("mouseover", mouseover);

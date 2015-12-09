@@ -174,6 +174,76 @@ var factors = [
     "min": 0,
     "max": 8
 },
+{
+    "title": "Light Conditions",
+    "name": "Light_Conditions",
+    "type": "multi-select",
+    "values": [
+    {
+        "value": "1",
+        "key": "Daylight"
+    },
+    {
+        "value": "4",
+        "key": "Darkness - lights lit"
+    },
+    {
+        "value": "5",
+        "key": "Darkness - lights unlit"
+    },
+    {
+        "value": "6",
+        "key": "Darkness - no lighting"
+    },
+    {
+        "value": "7",
+        "key": "Darkness - lighting unknown"
+    }
+    ]
+},
+{
+    "title": "Weather Conditions",
+    "name": "Weather_Conditions",
+    "type": "multi-select",
+    "values": [
+    {
+        "value": "1",
+        "key": "Fine, no high winds"
+    },
+    {
+        "value": "2",
+        "key": "Raining, no high winds"
+    },
+    {
+        "value": "3",
+        "key": "Snowing, no high winds"
+    },
+    {
+        "value": "4",
+        "key": "Fine, with high winds"
+    },
+    {
+        "value": "5",
+        "key": "Raining, with high winds"
+    },
+    {
+        "value": "6",
+        "key": "Snowing, with high winds"
+    },
+    {
+        "value": "7",
+        "key": "Fog or mist"
+    },
+    {
+        "value": "8",
+        "key": "Others"
+    },
+    {
+        "value": "9",
+        "key": "Unknown"
+    }
+    ]
+}
 ];
 
 var factorsMap = {};

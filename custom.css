@@ -304,3 +304,7 @@ rect {
       z-index: 8;
       margin-top: 35px;
     }
+
+    .marker-cluster-large div {
+    	background-color: white;	
+	}
